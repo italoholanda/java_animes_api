@@ -14,7 +14,7 @@ This is a simple Java Spring Boot project that contains an "Animes Api" working 
     <td>Java 11</td>
   </tr>
   <tr>
-    <td>Spring Booot</td>
+    <td>Spring Boot</td>
   </tr>
   <tr>
     <td>Docker</td>
