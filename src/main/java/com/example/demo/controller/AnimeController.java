@@ -25,13 +25,13 @@ public class AnimeController {
     private final DateUtil dateUtil;
     private final AnimeService animeService;
 
-    @GetMapping(path = "list")
+    @GetMapping(path = "/list")
     public ResponseEntity<Page<Anime>> list(Pageable pageable) {
         log.info(dateUtil.fotmatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeService.listAll(pageable));
     }
 
-    @GetMapping(path = "all")
+    @GetMapping(path = "/all")
     public ResponseEntity<List<Anime>> listAll() {
         log.info(dateUtil.fotmatLocalDateTimeToDatabaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeService.listAllNonPageable());
@@ -47,7 +47,7 @@ public class AnimeController {
         return ResponseEntity.ok(animeService.findByName(name));
     }
 
-    @PostMapping(path = "save")
+    @PostMapping(path = "/save")
     public ResponseEntity<Anime> save(@RequestBody @Valid AnimePostRequestBody animePostRequestBody) {
         return new ResponseEntity<>(animeService.save(animePostRequestBody), HttpStatus.CREATED);
     }
@@ -58,7 +58,7 @@ public class AnimeController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping(path = "replace")
+    @PutMapping(path = "/replace")
     public ResponseEntity<Void> replace(@RequestBody AnimePutRequestBody animePutRequestBody) {
         animeService.replace(animePutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
